@@ -1,0 +1,3 @@
+/home/myuser/opencv/test_angles/build/CMakeFiles/edit_cache.dir
+/home/myuser/opencv/test_angles/build/CMakeFiles/rebuild_cache.dir
+/home/myuser/opencv/test_angles/build/CMakeFiles/test_angle.dir
