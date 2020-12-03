@@ -285,14 +285,41 @@ Vec<T, 3> AnglesToEular(const Quat<T> &quat, EULERORDER order){
 
     case INT_XYZ:
     {
+        if(convertMatrix[0][2]-1<1e-06){
+            cout<<"WARNING:Gimbal Lock happened." <<endl;;
+            Angles(0) = std::atan2(convertMatrix[1][0],convertMatrix[1][1]);
+            Angles(1) = CV_PI/2;
+            Angles(2) = 0;
+            break;
+        }
+        else if(convertMatrix[0][2]+1<1e-06){
+            cout<<"WARNING:Gimbal Lock happened." <<endl;;
+            Angles(0)= std::atan2(convertMatrix[2][1],convertMatrix[1][1]);
+            Angles(1)=-CV_PI/2;
+            Angles(2)=0;
+            break;
+        }
         Angles(0) = std::atan2(-convertMatrix[1][2], convertMatrix[2][2]);
         Angles(1) = std::atan2(convertMatrix[0][2],std::sqrt(1-convertMatrix[0][2]*convertMatrix[0][2]));
         Angles(2) = std::atan2(-convertMatrix[0][1],convertMatrix[0][0]);
-
         break;
     }
     case INT_XZY:
     {
+         if(convertMatrix[0][2]-1<1e-06){
+            cout<<"WARNING:Gimbal Lock happened." <<endl;;
+            Angles(0) = std::atan2(-convertMatrix[1][2],convertMatrix[2][2]);
+            Angles(1) = -CV_PI/2;
+            Angles(2) =0;
+            break;
+        }
+        else if(convertMatrix[0][2]+1<1e-06){
+            cout<<"WARNING:Gimbal Lock happened." <<endl;;
+            Angles(0) = std::atan2(-convertMatrix[2][0],convertMatrix[2][2]);
+            Angles(1) = CV_PI/2;
+            Angles(2) = 0;
+            break;
+        }
         Angles(0) = std::atan2(convertMatrix[2][1],convertMatrix[1][1]);
         Angles(1) = std::atan2(-convertMatrix[0][1],std::sqrt(1-convertMatrix[0][1]*convertMatrix[0][1]));
         Angles(2) = std::atan2(convertMatrix[0][2],convertMatrix[0][0]);
@@ -301,6 +328,20 @@ Vec<T, 3> AnglesToEular(const Quat<T> &quat, EULERORDER order){
     }
     case INT_XYX:
     {
+        if(convertMatrix[0][2]-1<1e-06){
+            cout<<"WARNING:Gimbal Lock happened." <<endl;;
+            Angles(0) = std::atan2(-convertMatrix[2][1],convertMatrix[2][2]);
+            Angles(1) = 0;
+            Angles(2) = 0;
+            break;
+        }
+        else if(convertMatrix[0][2]+1<1e-06){
+            cout<<"WARNING:Gimbal Lock happened." <<endl;;
+            Angles(0) = std::atan2(-convertMatrix[1][2],convertMatrix[2][2]);
+            Angles(1) = CV_PI;
+            Angles(2) = 0;
+            break;
+        }
         Angles(0) = std::atan2(convertMatrix[1][0],-convertMatrix[2][0]);
         Angles(1) = std::atan2(std::sqrt(1-convertMatrix[0][0]*convertMatrix[0][0]),convertMatrix[0][0]);
         Angles(2) = std::atan2(convertMatrix[0][1],convertMatrix[0][2]);
@@ -309,6 +350,20 @@ Vec<T, 3> AnglesToEular(const Quat<T> &quat, EULERORDER order){
     }
     case INT_XZX:
     {
+        if(convertMatrix[0][2]-1<1e-06){
+            cout<<"WARNING:Gimbal Lock happened." <<endl;;
+            Angles(0) = std::atan2(-convertMatrix[2][1],convertMatrix[2][2]);
+            Angles(1) = 0;
+            Angles(2) = 0;
+            break;
+        }
+        else if(convertMatrix[0][2]+1<1e-06){
+            cout<<"WARNING:Gimbal Lock happened." <<endl;;
+            Angles(0) = std::atan2(-convertMatrix[2][1],convertMatrix[2][2]);
+            Angles(1) = CV_PI;
+            Angles(2) = 0;
+            break;
+        }
         Angles(0) = std::atan2(convertMatrix[2][0],convertMatrix[1][0]);
         Angles(1) = std::atan2(std::sqrt(1-convertMatrix[0][0]*convertMatrix[0][0]),convertMatrix[0][0]);
         Angles(2) = std::atan2(convertMatrix[0][2],-convertMatrix[0][1]);
@@ -317,6 +372,20 @@ Vec<T, 3> AnglesToEular(const Quat<T> &quat, EULERORDER order){
     }
     case INT_YXZ:
     {
+        if(convertMatrix[0][2]-1<1e-06){
+            cout<<"WARNING:Gimbal Lock happened." <<endl;;
+            Angles(0) = std::atan2(-convertMatrix[0][1],convertMatrix[0][0]);
+            Angles(1) = -CV_PI/2;
+            Angles(2) = 0;
+            break;
+        }
+        else if(convertMatrix[0][2]+1<1e-06){
+            cout<<"WARNING:Gimbal Lock happened." <<endl;;
+            Angles(0) = std::atan2(-convertMatrix[0][1],convertMatrix[0][0]);
+            Angles(1) = CV_PI/2;
+            Angles(2) = 0;
+            break;
+        }
         Angles(0) = std::atan2(convertMatrix[0][2],convertMatrix[2][2]);
         Angles(1) = std::atan2(-convertMatrix[1][2],std::sqrt(1-convertMatrix[1][2]*convertMatrix[1][2]));
         Angles(2) = std::atan2(convertMatrix[1][0],convertMatrix[1][1]);
@@ -324,13 +393,41 @@ Vec<T, 3> AnglesToEular(const Quat<T> &quat, EULERORDER order){
     }
     case INT_YZX:
     {
+        if(convertMatrix[1][0]-1<1e-06){
+            cout<<"WARNING:Gimbal Lock happened." <<endl;;
+            Angles(0) = std::atan2(-convertMatrix[0][1],convertMatrix[0][0]);
+            Angles(1) = CV_PI/2;
+            Angles(2) = 0;
+            break;
+        }
+        else if(convertMatrix[1][0]+1<1e-06){
+            cout<<"WARNING:Gimbal Lock happened." <<endl;;
+            Angles(0) = std::atan2(-convertMatrix[0][2],convertMatrix[0][1]);
+            Angles(1) = -CV_PI/2;
+            Angles(2) = 0;
+            break;
+        }
         Angles(0) = std::atan2(-convertMatrix[2][0],convertMatrix[0][0]);
-        Angles(1) = std::atan2(-convertMatrix[1][0],std::sqrt(1-convertMatrix[1][0]*convertMatrix[1][0]));
+        Angles(1) = std::atan2(convertMatrix[1][0],std::sqrt(1-convertMatrix[1][0]*convertMatrix[1][0]));
         Angles(2) = std::atan2(-convertMatrix[1][2],convertMatrix[1][1]);
         break;
     }
     case INT_YXY:
     {
+         if(convertMatrix[1][1]-1<1e-06){
+            cout<<"WARNING:Gimbal Lock happened." <<endl;;
+            Angles(0) = std::atan2(-convertMatrix[0][2],convertMatrix[0][0]);
+            Angles(1) = 0;
+            Angles(2) = 0;
+            break;
+        }
+        else if(convertMatrix[1][1]+1<1e-06){
+            cout<<"WARNING:Gimbal Lock happened." <<endl;;
+            Angles(0) = std::atan2(-convertMatrix[0][2],convertMatrix[0][1]);
+            Angles(1) = -CV_PI/2;
+            Angles(2) = 0;
+            break;
+        }
         Angles(0) = std::atan2(convertMatrix[0][1],convertMatrix[2][1]);
         Angles(1) = std::atan2(std::sqrt(1-convertMatrix[1][1]*convertMatrix[1][1]),convertMatrix[1][1]);
         Angles(2) = std::atan2(convertMatrix[1][0],-convertMatrix[1][2]);
@@ -475,8 +572,8 @@ Vec<T, 3> AnglesToEular(const Quat<T> &quat, EULERORDER order){
 }
 
 int main(){
-    Vec3d angle = {0.324, 0.8, -0.897};
-    EULERORDER order=EXT_ZXZ;
+    Vec3d angle = {0.324, 1.57, -0.897};
+    EULERORDER order=INT_XYZ;
     Quatd dst = EularToAngles(angle,  order);
     std::cout<<"dst "<<dst<<std::endl;
     //std::cout<<"dst2 "<<dst2<<std::endl;
