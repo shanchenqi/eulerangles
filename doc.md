@@ -14,7 +14,7 @@
 
 外旋(extrinsic rotations) = 固定轴(static/fixed axis)
 
-对一次旋转，绕X轴旋转$\alpha$，绕Y轴旋转$\beta$，绕Z轴旋转$\gamma$，若采用内旋：旋转矩阵$R =X_{\alpha} Y_{\beta} Z_{\gamma} $
+对一次旋转，绕X轴旋转$\alpha$，绕Y轴旋转$\beta$，绕Z轴旋转$\gamma$，若采用内旋：旋转矩阵$R =X(\alpha) Y(\beta) Z(\gamma) $
 
 若采用外旋，旋转矩阵$R =Z_{\gamma} Y_{\beta} X_{\alpha}$
 
@@ -30,11 +30,11 @@
 
 **Tait–Bryan angles**   :
 
-$\alpha$[−*π*, *π*].  
+$\alpha$(−*π*, *π*].  
 
 $\beta$ [−*π*/2, *π*/2],  
 
- $\gamma$[−*π*, *π*]. 
+ $\gamma$(−*π*, *π*]. 
 
 说明：$\beta$范围 [−*π*/2, *π*/2]：由于欧拉角存在$X_\alpha Y_\beta Z_\gamma =X_{\alpha+\pi} Y_{-\beta+\pi} Z_{\gamma+\pi } $
 
@@ -42,11 +42,11 @@ $\beta$ [−*π*/2, *π*/2],
 
 **Proper Euler angles**   
 
-$\alpha$[−*π*, *π*].   
+$\alpha$(−*π*, *π*].   
 
 $\beta$[0, *π*],   
 
-$gamma$[−*π*, *π*]. 
+$gamma$(−*π*, *π*]. 
 
 说明：$\beta$范围 [0, *π*]：由于欧拉角存在$X_\alpha Y_\beta Z_\gamma =X_{\alpha+\pi} Y_{-\beta} Z_{\gamma+\pi } $
 
@@ -126,7 +126,7 @@ $\theta_2=-\pi/2$
 
 为了减少旋转次数，我们取$\theta_3=0$，可以得到一组解：$\begin{cases}
    \theta_1=arctan2(m_{21},m_{22}) \\
-   \theta_2=\pi/2\\
+   \theta_2=-\pi/2\\
    \theta_3=0
   \end{cases}$
 
@@ -456,12 +456,12 @@ Y_{1}Z_{2}X_{3}={\begin{bmatrix}0&-cos(\theta_1+\theta_3)&sin(\theta_1+\theta_3)
 $$
 所以：
 
-$\theta_1+\theta_3=\theta_1$ = $arctan2(m_{13},m_{33})$
+$\theta_1+\theta_3$= $arctan2(m_{13},m_{33})$
 
 $\theta_2=\pi/2$
 
 为了减少旋转次数，我们取$\theta_3=0$，可以得到一组解：$\begin{cases}
-   \theta_1=\arctan2(m_{12},m_{11})\\
+   \theta_1=\arctan2(m_{13},m_{11})\\
    \theta_2=\pi/2\\
    \theta_3=0
   \end{cases}$
@@ -550,7 +550,7 @@ cos(\theta_1-\theta_3)&0&-sin(\theta_1-\theta_3)\\
 $$
 所以：
 
-$\theta_1-\theta_3=\theta_1$ = $arctan2(-m_{31},m_{11})$
+$\theta_1-\theta_3 $arctan2(-m_{31},m_{11})$
 
 $\theta_2=\pi$
 
@@ -595,7 +595,7 @@ cos(\theta_1+\theta_3)&0&sin(\theta_1+\theta_3)\\
 $$
 所以：
 
-$\theta_1+\theta_3=\theta_1$ = $arctan2(m_{13},m_{11})$
+$\theta_1+\theta_3$ = $arctan2(m_{13},m_{11})$
 
 $\theta_2=0$
 
@@ -621,7 +621,7 @@ sin(\theta_1-\theta_3)&0&cos(\theta_1-\theta_3)\end{bmatrix}}
 $$
 所以：
 
-$\theta_1-\theta_3$ = $arctan2(m_{13},m_{11})$
+$\theta_1-\theta_3$ = $arctan2(m_{13},m_{13})$
 
 $\theta_2=\pi$
 
@@ -795,7 +795,7 @@ sin(\theta_1+\theta_3)&cos(\theta_1+\theta_3)&0\\
 $$
 所以：
 
-$\theta_1+\theta_3=\theta_1$ = $arctan(m_{21},m_{22})$
+$\theta_1+\theta_3$ = $arctan2(m_{21},m_{22})$
 
 $\theta_2=0$
 
