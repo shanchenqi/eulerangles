@@ -125,7 +125,7 @@ $\theta_1-\theta_3$ = $arctan2(m_{32},m_{22})$
 $\theta_2=-\pi/2$
 
 为了减少旋转次数，我们取$\theta_3=0$，可以得到一组解：$\begin{cases}
-   \theta_1=arctan2(m_{21},m_{22}) \\
+   \theta_1=arctan2(m_{32},m_{22}) \\
    \theta_2=-\pi/2\\
    \theta_3=0
   \end{cases}$
@@ -381,9 +381,9 @@ $$
 即：
 $$
 Y_{1}X_{2}Z_{3}=
-{\begin{bmatrix}cos(\theta_1+\theta_2)&-sin(\theta_1+\theta_2)&0\\
+{\begin{bmatrix}cos(\theta_1+\theta_3)&-sin(\theta_1+\theta_3)&0\\
 0&0&1\\
--sin(\theta_1+\theta_2)&-cos(\theta_1+\theta_2)&0\end{bmatrix}}
+-sin(\theta_1+\theta_3)&-cos(\theta_1+\theta_3)&0\end{bmatrix}}
 $$
 所以：
 
@@ -407,9 +407,9 @@ $$
 即：
 $$
 Y_{1}X_{2}Z_{3}=
-{\begin{bmatrix}cos(\theta_1-\theta_2)&sin(\theta_1-\theta_2)&0\\
+{\begin{bmatrix}cos(\theta_1-\theta_3)&sin(\theta_1-\theta_3)&0\\
 0&0&-1\\
--sin(\theta_1-\theta_2)&cos(\theta_1-\theta_2)&0\end{bmatrix}}
+-sin(\theta_1-\theta_3)&cos(\theta_1-\theta_3)&0\end{bmatrix}}
 $$
 所以：
 
@@ -461,7 +461,7 @@ $\theta_1+\theta_3$= $arctan2(m_{13},m_{33})$
 $\theta_2=\pi/2$
 
 为了减少旋转次数，我们取$\theta_3=0$，可以得到一组解：$\begin{cases}
-   \theta_1=\arctan2(m_{13},m_{11})\\
+   \theta_1=\arctan2(m_{13},m_{33})\\
    \theta_2=\pi/2\\
    \theta_3=0
   \end{cases}$
@@ -550,7 +550,7 @@ cos(\theta_1-\theta_3)&0&-sin(\theta_1-\theta_3)\\
 $$
 所以：
 
-$\theta_1-\theta_3 $arctan2(-m_{31},m_{11})$
+$\theta_1-\theta_3 =arctan2(-m_{31},m_{11})$
 
 $\theta_2=\pi$
 
